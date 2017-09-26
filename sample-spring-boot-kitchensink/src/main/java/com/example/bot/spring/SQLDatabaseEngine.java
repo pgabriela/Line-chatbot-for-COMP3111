@@ -14,7 +14,8 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		//Write your code here
 		String result = null;
 		Connection conn = getConnection();
-		PreparedStatement stmt = conn.prepareStatement("select response from responseList where keyword='"+text+"';");
+		PreparedStatement stmt = conn.prepareStatement("select response from responseList where keyword = ?");
+		stmt.setString(1, text);
 		ResultSet rs = stmt.executeQuery();
 		while(rs.next()) {
 			result = rs.getString(1);
