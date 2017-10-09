@@ -8,12 +8,13 @@ import javax.persistence.Id;
 @Entity
 public class Dictionary {
 
-	//@Id
-	//private int id;
+	@Id
+	private int id;
 	private String keyword;
 	private String response;
 
-	public Dictionary(String k, String r){
+	public Dictionary(int i, String k, String r){
+		id = i;
 		keyword = k;
 		response = r;
 	}
@@ -24,17 +25,17 @@ public class Dictionary {
 	public void setResponse(String r){
 		response= r;
 	}
-	//public void setId(int i){
-	//	this.id = i;
-	//}
+	public void setId(int i){
+		id = i;
+	}
 	public String getKeyword(){
 		return keyword;
 	}
 	public String getResponse(){
 		return response;
 	}
-	//public int getId(){
-	//	return id;
-	//}
+	public int getId(){
+		return id;
+	}
 
 }
