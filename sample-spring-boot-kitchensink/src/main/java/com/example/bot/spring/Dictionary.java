@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Dictionary {
 
 	@Id
-	private int id;
+	int id;
 	private String keyword;
 	private String response;
 
