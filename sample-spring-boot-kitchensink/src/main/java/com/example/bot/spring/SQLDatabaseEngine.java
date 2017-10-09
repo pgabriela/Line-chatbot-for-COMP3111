@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class SQLDatabaseEngine extends DatabaseEngine {
 
 	@Autowired
-	private DictionaryRepository dictRepo
+	private DictionaryRepository dictRepo;
 
 	@Override
 	String search(String text) throws Exception {
