@@ -29,13 +29,8 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		conn.close();
 		*/
 
-		Iterable<Dictionary> i = KitchenSinkApplication.dictRepo.findAll();
-		for(Iterator<Dictionary> iter = i.iterator(); iter.hasNext();){
-			Dictionary tmp = iter.next();
-			if(tmp.getKeyword() == text){
-				result = tmp.getResponse();
-				break;
-			}
+		for(Dictionary dict : KitchenSinkApplication.dictRepo.findByKeyword(text)){
+			result = dict.getResponse();
 		}
 
 		if(result != null) {

@@ -6,5 +6,5 @@ import java.util.List;
 
 @Component
 public interface DictionaryRepository extends CrudRepository<Dictionary, Long> {
-	// public List<Dictionary> findByKeyword(String keyword);	
+	public List<Dictionary> findByKeyword(String keyword);	
 }
