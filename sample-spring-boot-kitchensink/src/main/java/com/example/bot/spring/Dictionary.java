@@ -29,13 +29,13 @@ public class Dictionary {
 		this.id = i;
 	}
 	public String getKwd(){
-		return this.keyword;
+		return keyword;
 	}
 	public String getRsp(){
-		return this.response;
+		return response;
 	}
 	public int getId(){
-		return this.id;
+		return id;
 	}
 
 }
