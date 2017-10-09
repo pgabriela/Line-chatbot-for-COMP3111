@@ -12,6 +12,9 @@ import java.util.Iterator;
 @Slf4j
 public class SQLDatabaseEngine extends DatabaseEngine {
 
+	@Autowired
+	private DictionaryRepository dictRepo
+
 	@Override
 	String search(String text) throws Exception {
 		//Write your code here
@@ -29,8 +32,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		conn.close();
 		*/
 
-		/*
-		Iterable<Dictionary> i = KitchenSinkApplication.dictRepo.findAll();
+		Iterable<Dictionary> i = dictRepo.findAll();
 		for(Iterator<Dictionary> iter = i.iterator(); iter.hasNext();){
 			Dictionary tmp = iter.next();
 			if(tmp.getKeyword() == text){
@@ -38,7 +40,6 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 				break;
 			}
 		}
-		*/
 
 		if(result != null) {
 			return result;
