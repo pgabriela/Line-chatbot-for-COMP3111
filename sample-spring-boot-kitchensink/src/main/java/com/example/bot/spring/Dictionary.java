@@ -13,7 +13,8 @@ public class Dictionary {
 	private String keyword;
 	private String response;
 
-	public Dictionary(String k, String r){
+	public Dictionary(int id, String k, String r){
+		this.id = id;
 		this.keyword = k;
 		this.response = r;
 	}

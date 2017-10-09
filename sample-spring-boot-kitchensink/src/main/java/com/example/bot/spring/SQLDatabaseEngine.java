@@ -7,6 +7,7 @@ import java.sql.*;
 import java.net.URISyntaxException;
 import java.net.URI;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Iterator;
 
 @Slf4j
 public class SQLDatabaseEngine extends DatabaseEngine {
@@ -30,7 +31,12 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		conn.close();
 		*/
 
-		result = this.dictRepo.findByKeyword(text);
+		// result = dictRepo.findByKeyword(text);
+		Iterable<Dictionary> i = dictRepo.findAll();
+		for(Iterator<Dictionary> iter = i.iterator(); iter.hasNext();){
+			Dictionary tmp = iter.next();
+			if(tmp.getKwd() == text) result = tmp.getRsp();
+		}
 
 		if(result != null) {
 			return result;

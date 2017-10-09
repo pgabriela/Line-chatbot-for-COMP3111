@@ -36,11 +36,11 @@ public class KitchenSinkApplication {
 	Iterator<Dictionary> iter = i.iterator();
 
 	if(!iter.hasNext()){
-		dictRepo.save(new Dictionary("kewd1", "rsp1"));
-		dictRepo.save(new Dictionary("kewd2", "rsp2"));
-		dictRepo.save(new Dictionary("kewd3", "rsp3"));
-		dictRepo.save(new Dictionary("kewd4", "rsp4"));
-		dictRepo.save(new Dictionary("kewd5", "rsp5"));
+		dictRepo.save(new Dictionary(0, "kwd1", "rsp1"));
+		dictRepo.save(new Dictionary(1, "kwd2", "rsp2"));
+		dictRepo.save(new Dictionary(2, "kwd3", "rsp3"));
+		dictRepo.save(new Dictionary(3, "kwd4", "rsp4"));
+		dictRepo.save(new Dictionary(4, "kwd5", "rsp5"));
 	}
     }
 }
