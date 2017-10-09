@@ -12,7 +12,7 @@ import java.util.Iterator;
 @Slf4j
 public class SQLDatabaseEngine extends DatabaseEngine {
 	@Autowired
-	private DictionaryRepository dictRepo;
+	DictionaryRepository dictRepo;
 
 	@Override
 	String search(String text) throws Exception {
