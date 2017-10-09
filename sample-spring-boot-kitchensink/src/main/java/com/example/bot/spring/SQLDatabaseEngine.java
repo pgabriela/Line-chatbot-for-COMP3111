@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.net.URISyntaxException;
 import java.net.URI;
+import java.util.Iterator;
 
 @Slf4j
 public class SQLDatabaseEngine extends DatabaseEngine {
@@ -13,6 +14,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 	String search(String text) throws Exception {
 		//Write your code here
 		String result = null;
+		/*
 		Connection conn = getConnection();
 		PreparedStatement stmt = conn.prepareStatement("select response from responseList where keyword = ?");
 		stmt.setString(1, text);
@@ -23,6 +25,17 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		rs.close();
 		stmt.close();
 		conn.close();
+		*/
+		@Autowired
+		DictionaryRepository dictRepo;
+
+		Iterable<Dictionary> i = dictRepo.findByKeyword(text);
+
+		for(Iterator<Dictionary> iter = i.iterator(); iter.hasNext();){
+			Dictionary tmp = iter.next();
+			result = tmp.getRsp();
+		}
+
 		if(result != null) {
 			return result;
 		}
@@ -30,6 +43,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 	}
 	
 	
+	/*
 	private Connection getConnection() throws URISyntaxException, SQLException {
 		Connection connection;
 		URI dbUri = new URI(System.getenv("DATABASE_URL"));
@@ -45,5 +59,6 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 
 		return connection;
 	}
+	*/
 
 }

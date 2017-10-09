@@ -29,7 +29,14 @@ public class KitchenSinkApplication {
 
     public static void main(String[] args) throws IOException {
         downloadedContentDir = Files.createTempDirectory("line-bot");
-        SpringApplication.run(KitchenSinkApplication.class, args);
-    }
+	DictionaryRepository dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
 
+	if(dictRepo.findAll().length == 0){
+		dictRepo.save(new Dictionary("kewd1", "rsp1"));
+		dictRepo.save(new Dictionary("kewd2", "rsp2"));
+		dictRepo.save(new Dictionary("kewd3", "rsp3"));
+		dictRepo.save(new Dictionary("kewd4", "rsp4"));
+		dictRepo.save(new Dictionary("kewd5", "rsp5"));
+	}
+    }
 }
