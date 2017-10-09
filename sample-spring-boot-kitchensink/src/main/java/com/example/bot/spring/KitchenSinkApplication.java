@@ -23,14 +23,20 @@ import java.util.Iterator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.example.bot.spring.DictionaryRepository;
+import com.example.bot.spring.Dictionary;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootApplication
 public class KitchenSinkApplication {
     static Path downloadedContentDir;
 
+    @Autowired
+    private DictionaryRepository dictRepo;
+
     public static void main(String[] args) throws IOException {
         downloadedContentDir = Files.createTempDirectory("line-bot");
-	DictionaryRepository dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
+	SpringApplication.run(KitchenSinkApplication.class, args);
 
 	//Iterable<Dictionary> i = dictRepo.findAll();
 	//Iterator<Dictionary> iter = i.iterator();
