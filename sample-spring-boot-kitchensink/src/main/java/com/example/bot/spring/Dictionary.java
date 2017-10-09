@@ -8,34 +8,33 @@ import javax.persistence.Id;
 @Entity
 public class Dictionary {
 
-	@Id
-	int id;
+	//@Id
+	//private int id;
 	private String keyword;
 	private String response;
 
-	public Dictionary(int id, String k, String r){
-		this.id = id;
-		this.keyword = k;
-		this.response = r;
+	public Dictionary(String k, String r){
+		keyword = k;
+		response = r;
 	}
 
-	public void setKwd(String k){
-		this.keyword = k;
+	public void setKeyword(String k){
+		keyword = k;
 	}
-	public void setRsp(String r){
-		this.response= r;
+	public void setResponse(String r){
+		response= r;
 	}
-	public void setId(int i){
-		this.id = i;
-	}
-	public String getKwd(){
+	//public void setId(int i){
+	//	this.id = i;
+	//}
+	public String getKeyword(){
 		return keyword;
 	}
-	public String getRsp(){
+	public String getResponse(){
 		return response;
 	}
-	public int getId(){
-		return id;
-	}
+	//public int getId(){
+	//	return id;
+	//}
 
 }
