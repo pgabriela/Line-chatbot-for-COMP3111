@@ -9,4 +9,5 @@ import java.util.List;
 public interface DictionaryRepository extends Repository<Dictionary, Long> {
 	List<Dictionary> findByKeyword(String keyword);	
 	List<Dictionary> findAll();	
+	Dictionary save(Dictionary dictionary);
 }
