@@ -49,9 +49,7 @@ public class KitchenSinkApplication {
 		Dictionary d5 = new Dictionary("kwd5", "rsp5");
 		dictRepo.save(d5);
 	}
-	Iterable<Dictionary> i2 = dictRepo.findAll();
-	Iterator<Dictionary> iter2 = i2.iterator();
-	if(iter2.hasNext()){
+	for(Dictionary dict : dictRepo.findAll()){
 		Dictionary d6 = new Dictionary("kwd6", "rsp6");
 		dictRepo.save(d6);
 	}
