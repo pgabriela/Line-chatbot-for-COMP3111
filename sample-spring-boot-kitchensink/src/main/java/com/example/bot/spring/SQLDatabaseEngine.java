@@ -6,11 +6,13 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.net.URISyntaxException;
 import java.net.URI;
-import java.util.Iterator;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Slf4j
 public class SQLDatabaseEngine extends DatabaseEngine {
+	@Autowired
+	private DictionaryRepository dictRepo;
+
 	@Override
 	String search(String text) throws Exception {
 		//Write your code here
@@ -27,15 +29,8 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		stmt.close();
 		conn.close();
 		*/
-		@Autowired
-		DictionaryRepository dictRepo;
 
-		Iterable<Dictionary> i = dictRepo.findByKeyword(text);
-
-		for(Iterator<Dictionary> iter = i.iterator(); iter.hasNext();){
-			Dictionary tmp = iter.next();
-			result = tmp.getRsp();
-		}
+		result = this.dictRepo.findByKeyword(text);
 
 		if(result != null) {
 			return result;
