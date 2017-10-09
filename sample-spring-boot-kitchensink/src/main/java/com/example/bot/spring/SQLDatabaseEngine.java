@@ -35,7 +35,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		Iterable<Dictionary> i = dictRepo.findAll();
 		for(Iterator<Dictionary> iter = i.iterator(); iter.hasNext();){
 			Dictionary tmp = iter.next();
-			if(tmp.getKeywordwd() == text){
+			if(tmp.getKeyword() == text){
 				result = tmp.getResponse();
 				break;
 			}
