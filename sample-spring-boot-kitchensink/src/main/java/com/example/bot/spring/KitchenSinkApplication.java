@@ -24,32 +24,28 @@ import java.util.Iterator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.bot.spring.Dictionary;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootApplication
 public class KitchenSinkApplication {
     static Path downloadedContentDir;
 
-    @Autowired
-    static DictionaryRepository dictRepo;
-
     public static void main(String[] args) throws IOException {
         downloadedContentDir = Files.createTempDirectory("line-bot");
-	SpringApplication.run(KitchenSinkApplication.class, args);
+	DictionaryRepository dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
 
 	//Iterable<Dictionary> i = dictRepo.findAll();
 	//Iterator<Dictionary> iter = i.iterator();
 
 	//if(!iter.hasNext()){
-	Dictionary d1 = new Dictionary(1, "kwd1", "rsp1");
+	Dictionary d1 = new Dictionary("kwd1", "rsp1");
 	dictRepo.save(d1);
-	Dictionary d2 = new Dictionary(1, "kwd2", "rsp2");
+	Dictionary d2 = new Dictionary("kwd2", "rsp2");
 	dictRepo.save(d2);
-	Dictionary d3 = new Dictionary(1, "kwd3", "rsp3");
+	Dictionary d3 = new Dictionary("kwd3", "rsp3");
 	dictRepo.save(d3);
-	Dictionary d4 = new Dictionary(1, "kwd4", "rsp4");
+	Dictionary d4 = new Dictionary("kwd4", "rsp4");
 	dictRepo.save(d4);
-	Dictionary d5 = new Dictionary(1, "kwd5", "rsp5");
+	Dictionary d5 = new Dictionary("kwd5", "rsp5");
 	dictRepo.save(d5);
 	//}
     }

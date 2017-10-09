@@ -29,6 +29,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		conn.close();
 		*/
 
+		/*
 		Iterable<Dictionary> i = KitchenSinkApplication.dictRepo.findAll();
 		for(Iterator<Dictionary> iter = i.iterator(); iter.hasNext();){
 			Dictionary tmp = iter.next();
@@ -37,6 +38,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 				break;
 			}
 		}
+		*/
 
 		if(result != null) {
 			return result;

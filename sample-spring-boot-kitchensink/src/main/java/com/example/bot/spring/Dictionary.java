@@ -9,12 +9,12 @@ import javax.persistence.Id;
 public class Dictionary {
 
 	@Id
-	int id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 	private String keyword;
 	private String response;
 
-	public Dictionary(int i, String k, String r){
-		this.id = i;
+	public Dictionary(String k, String r){
 		this.keyword = k;
 		this.response = r;
 	}
