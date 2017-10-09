@@ -7,6 +7,7 @@ import java.sql.*;
 import java.net.URISyntaxException;
 import java.net.URI;
 import java.util.Iterator;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Slf4j
 public class SQLDatabaseEngine extends DatabaseEngine {
