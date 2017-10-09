@@ -32,15 +32,15 @@ public class KitchenSinkApplication {
         downloadedContentDir = Files.createTempDirectory("line-bot");
 	DictionaryRepository dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
 
-	Iterable<Dictionary> i = dictRepo.findAll();
-	Iterator<Dictionary> iter = i.iterator();
+	//Iterable<Dictionary> i = dictRepo.findAll();
+	//Iterator<Dictionary> iter = i.iterator();
 
-	if(!iter.hasNext()){
-		dictRepo.save(new Dictionary(1, "kwd1", "rsp1"));
-		dictRepo.save(new Dictionary(2, "kwd2", "rsp2"));
-		dictRepo.save(new Dictionary(3, "kwd3", "rsp3"));
-		dictRepo.save(new Dictionary(4, "kwd4", "rsp4"));
-		dictRepo.save(new Dictionary(5, "kwd5", "rsp5"));
-	}
+	//if(!iter.hasNext()){
+	dictRepo.save(new Dictionary(1, "kwd1", "rsp1"));
+	dictRepo.save(new Dictionary(2, "kwd2", "rsp2"));
+	dictRepo.save(new Dictionary(3, "kwd3", "rsp3"));
+	dictRepo.save(new Dictionary(4, "kwd4", "rsp4"));
+	dictRepo.save(new Dictionary(5, "kwd5", "rsp5"));
+	//}
     }
 }
