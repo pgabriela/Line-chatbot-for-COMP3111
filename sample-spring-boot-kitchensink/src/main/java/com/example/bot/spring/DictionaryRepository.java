@@ -6,8 +6,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public interface DictionaryRepository extends Repository<Dictionary, Long> {
+public interface DictionaryRepository extends CrudRepository<Dictionary, Long> {
 	List<Dictionary> findByKeyword(String keyword);	
-	List<Dictionary> findAll();	
-	Dictionary save(Dictionary dictionary);
 }

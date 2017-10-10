@@ -28,12 +28,14 @@ import com.example.bot.spring.Dictionary;
 @SpringBootApplication
 public class KitchenSinkApplication {
     static Path downloadedContentDir;
-    static DictionaryRepository dictRepo;
+    //static DictionaryRepository dictRepo;
 
     public static void main(String[] args) throws IOException {
         downloadedContentDir = Files.createTempDirectory("line-bot");
-	dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
+	//dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
+	SpringApplication.run(KitchenSinkApplication.class, args);
 
+	/*
 	Iterable<Dictionary> i = dictRepo.findAll();
 	Iterator<Dictionary> iter = i.iterator();
 
@@ -53,5 +55,6 @@ public class KitchenSinkApplication {
 		Dictionary d6 = new Dictionary("kwd6", "rsp6");
 		dictRepo.save(d6);
 	}
+	*/
     }
 }

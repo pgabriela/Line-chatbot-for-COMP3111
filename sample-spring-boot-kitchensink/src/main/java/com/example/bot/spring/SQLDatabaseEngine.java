@@ -32,11 +32,13 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		conn.close();
 		*/
 
+		/*
 		for(Dictionary dict : dictRepo.findByKeyword(text)){
 			result = dict.getResponse();
 		}
+		*/
 
-		return "abc";
+		return new String("abc");
 		/*
 		if(result != null) {
 			return result;
