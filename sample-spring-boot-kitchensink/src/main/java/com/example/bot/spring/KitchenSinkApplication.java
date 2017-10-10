@@ -42,8 +42,8 @@ public class KitchenSinkApplication {
 	Iterable<Dictionary> i = dictRepo.findAll();
 	tester += dictRepo.findAll().getClass().getName();
 	Iterator<Dictionary> iter = i.iterator();
-	tester += ", next ";
-	tester += i.iterator().getClass().getName();
+	tester += ",next ";
+	tester += iter.hasNext();
 
 	if(!iter.hasNext()){
 		Dictionary d1 = new Dictionary("kwd1", "rsp1");
