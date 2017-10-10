@@ -47,15 +47,15 @@ public class KitchenSinkApplication {
 
 	if(!iter.hasNext()){
 		Dictionary d1 = new Dictionary("kwd1", "rsp1");
-		dictRepo.save(d1);
+		d1 = dictRepo.save(d1);
 		Dictionary d2 = new Dictionary("kwd2", "rsp2");
-		dictRepo.save(d2);
+		d2 = dictRepo.save(d2);
 		Dictionary d3 = new Dictionary("kwd3", "rsp3");
-		dictRepo.save(d3);
+		d3 = dictRepo.save(d3);
 		Dictionary d4 = new Dictionary("kwd4", "rsp4");
-		dictRepo.save(d4);
+		d4 = dictRepo.save(d4);
 		Dictionary d5 = new Dictionary("kwd5", "rsp5");
-		dictRepo.save(d5);
+		d5 = dictRepo.save(d5);
 	}
 	Iterable<Dictionary> ib = dictRepo.findAll();
 	tester += ", next ";
