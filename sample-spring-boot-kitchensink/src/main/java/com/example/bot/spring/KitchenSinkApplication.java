@@ -38,30 +38,14 @@ public class KitchenSinkApplication {
 
 	dictRepo = (DictionaryBotRepository) ctx.getBean("dictionaryBotRepository");
 
+	// Only for development testing
 	Iterable<DictionaryBot> i = dictRepo.findAll();
 	Iterator<DictionaryBot> iter = i.iterator();
 
 	if(!iter.hasNext()){
-		DictionaryBot d1 = new DictionaryBot();
-		d1.setKeyword("kwd1");
-		d1.setResponse("rsp1");
-		dictRepo.save(d1);
-		DictionaryBot d2 = new DictionaryBot();
-		d2.setKeyword("kwd2");
-		d2.setResponse("rsp2");
-		dictRepo.save(d2);
-		DictionaryBot d3 = new DictionaryBot();
-		d3.setKeyword("kwd3");
-		d3.setResponse("rsp3");
-		dictRepo.save(d3);
-	}
-	i = dictRepo.findAll();
-	iter = i.iterator();
-	if(iter.hasNext()){
-		DictionaryBot d6 = new DictionaryBot();
-		d6.setKeyword("kwd6");
-		d6.setResponse("rsp6");
-		d6 = dictRepo.save(d6);
+		dictRepo.save(new DictionaryBot("kwd1", "rsp1"));
+		dictRepo.save(new DictionaryBot("kwd2", "rsp2"));
+		dictRepo.save(new DictionaryBot("kwd3", "rsp3"));
 	}
     }
 }

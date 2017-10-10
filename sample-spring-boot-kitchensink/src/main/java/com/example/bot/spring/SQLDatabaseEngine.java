@@ -13,20 +13,8 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 
 	@Override
 	String search(String text) throws Exception {
-		//Write your code here
+
 		String result = null;
-		/*
-		Connection conn = getConnection();
-		PreparedStatement stmt = conn.prepareStatement("select response from responseList where keyword = ?");
-		stmt.setString(1, text);
-		ResultSet rs = stmt.executeQuery();
-		while(rs.next()) {
-			result = rs.getString(1);
-		}
-		rs.close();
-		stmt.close();
-		conn.close();
-		*/
 
 		Iterable<DictionaryBot> i = KitchenSinkApplication.dictRepo.findByKeyword(text);
 		
@@ -34,32 +22,10 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 			result = iter.next().getResponse();
 		}
 
-		return result;
-		/*
 		if(result != null) {
 			return result;
 		}
 		throw new Exception("NOT FOUND");
-		*/
 	}
 	
-	
-	/*
-	private Connection getConnection() throws URISyntaxException, SQLException {
-		Connection connection;
-		URI dbUri = new URI(System.getenv("DATABASE_URL"));
-
-		String username = dbUri.getUserInfo().split(":")[0];
-		String password = dbUri.getUserInfo().split(":")[1];
-		String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() +  "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
-
-		log.info("Username: {} Password: {}", username, password);
-		log.info ("dbUrl: {}", dbUrl);
-		
-		connection = DriverManager.getConnection(dbUrl, username, password);
-
-		return connection;
-	}
-	*/
-
 }
