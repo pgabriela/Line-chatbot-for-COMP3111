@@ -37,10 +37,12 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		}
 
 		return "abc";
+		/*
 		if(result != null) {
 			return result;
 		}
 		throw new Exception("NOT FOUND");
+		*/
 	}
 	
 	
