@@ -38,10 +38,10 @@ public class KitchenSinkApplication {
 	//dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
 	ApplicationContext ctx = SpringApplication.run(KitchenSinkApplication.class, args);
 
-	String[] beanNames = ctx.getBeanDefinitionNames();
-	for(String beanName : beanNames){
-		tester += beanName;
-	}
+	dictRepo = (DictionaryRepository) ctx.getBean("dictionaryRepository");
+	tester += dictRepo.getClass().getName();
+	tester += " ";
+	tester += dictRepo.findAll().getClass().getName();
 	Iterable<Dictionary> i = dictRepo.findAll();
 	Iterator<Dictionary> iter = i.iterator();
 
