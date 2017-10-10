@@ -20,7 +20,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 	@Override
 	String search(String text) throws Exception {
 		//Write your code here
-		String result = null;
+		String result = "mmm";
 		/*
 		Connection conn = getConnection();
 		PreparedStatement stmt = conn.prepareStatement("select response from responseList where keyword = ?");

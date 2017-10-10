@@ -56,7 +56,9 @@ public class KitchenSinkApplication {
 		Dictionary d6 = new Dictionary("kwd6", "rsp6");
 		dictRepo.save(d6);
 	}
-	if(iterb.hasNext()){
+	Iterable<Dictionary> ic = dictRepo.findAll();
+	Iterator<Dictionary> iterc = ic.iterator();
+	if(iterc.hasNext()){
 		tester = iterb.next().getResponse();
 	}
     }
