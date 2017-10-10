@@ -37,9 +37,8 @@ public class KitchenSinkApplication {
 	dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
 	//SpringApplication.run(KitchenSinkApplication.class, args);
 
-	tester = dictRepo.getClass().getName();
-
 	Iterable<Dictionary> i = dictRepo.findAll();
+	tester = i.getClass().getName();
 	Iterator<Dictionary> iter = i.iterator();
 
 	if(!iter.hasNext()){

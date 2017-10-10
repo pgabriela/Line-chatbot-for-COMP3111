@@ -40,7 +40,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		}
 		*/
 
-		result = KitchenSinkApplication.tester;
+		result = KitchenSinkApplication.dictRepo.getClass().getName();
 		return result;
 		/*
 		if(result != null) {
