@@ -12,8 +12,10 @@ import java.util.Iterator;
 @Slf4j
 public class SQLDatabaseEngine extends DatabaseEngine {
 
+	/*
 	@Autowired
 	private DictionaryRepository dictRepo;
+	*/
 
 	@Override
 	String search(String text) throws Exception {
@@ -38,7 +40,8 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		}
 		*/
 
-		return new String("abc");
+		result = KitchenSinkApplication.tester;
+		return result;
 		/*
 		if(result != null) {
 			return result;
