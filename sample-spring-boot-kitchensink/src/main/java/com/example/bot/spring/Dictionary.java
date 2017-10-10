@@ -14,19 +14,19 @@ public class Dictionary {
 	private String keyword;
 	private String response;
 
-	public Dictionary(String k, String r){
-		this.keyword = k;
-		this.response = r;
+	public Dictionary(String keyword, String response){
+		this.keyword = keyword;
+		this.response = response;
 	}
 
-	public void setKeyword(String k){
-		this.keyword = k;
+	public void setKeyword(String keyword){
+		this.keyword = keyword;
 	}
-	public void setResponse(String r){
-		this.response= r;
+	public void setResponse(String response){
+		this.response= response;
 	}
-	public void setId(int i){
-		this.id = i;
+	public void setId(int id){
+		this.id = id;
 	}
 	public String getKeyword(){
 		return keyword;

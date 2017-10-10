@@ -25,18 +25,23 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.bot.spring.Dictionary;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class KitchenSinkApplication {
     static Path downloadedContentDir;
-    static String tester = null;
+    static String tester = "";
     static DictionaryRepository dictRepo;
 
     public static void main(String[] args) throws IOException {
         downloadedContentDir = Files.createTempDirectory("line-bot");
-	dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
-	//SpringApplication.run(KitchenSinkApplication.class, args);
+	//dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
+	ApplicationContext ctx = SpringApplication.run(KitchenSinkApplication.class, args);
 
+	String[] beanNames = ctx.getBeanDefinitionNames();
+	for(String beanName : beanNames){
+		tester += beanName;
+	}
 	Iterable<Dictionary> i = dictRepo.findAll();
 	Iterator<Dictionary> iter = i.iterator();
 
@@ -53,7 +58,7 @@ public class KitchenSinkApplication {
 		dictRepo.save(d5);
 	}
 	Iterable<Dictionary> ib = dictRepo.findAll();
-	tester = Long.toString(dictRepo.count());
+	//tester = Long.toString(dictRepo.count());
 	Iterator<Dictionary> iterb = ib.iterator();
 	if(iterb.hasNext()){
 		Dictionary d6 = new Dictionary("kwd6", "rsp6");
