@@ -10,9 +10,9 @@ public class DictionaryBot {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	long id;
-	String keyword;
-	String response;
+	private long id;
+	private String keyword;
+	private String response;
 
 	/*
 	public Dictionary(String keyword, String response){

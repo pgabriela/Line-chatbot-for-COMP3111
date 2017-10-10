@@ -30,52 +30,32 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication
 public class KitchenSinkApplication {
     static Path downloadedContentDir;
-    static String tester = "";
     static DictionaryBotRepository dictRepo;
 
     public static void main(String[] args) throws IOException {
         downloadedContentDir = Files.createTempDirectory("line-bot");
-	//dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
 	ApplicationContext ctx = SpringApplication.run(KitchenSinkApplication.class, args);
 
 	dictRepo = (DictionaryBotRepository) ctx.getBean("dictionaryBotRepository");
+
 	Iterable<DictionaryBot> i = dictRepo.findAll();
-	tester += dictRepo.findAll().getClass().getName();
 	Iterator<DictionaryBot> iter = i.iterator();
-	tester += ",next ";
-	tester += iter.hasNext();
 
 	if(!iter.hasNext()){
 		DictionaryBot d1 = new DictionaryBot();
 		d1.setKeyword("kwd1");
 		d1.setResponse("rsp1");
-		d1 = dictRepo.save(d1);
+		dictRepo.save(d1);
 		DictionaryBot d2 = new DictionaryBot();
 		d2.setKeyword("kwd2");
 		d2.setResponse("rsp2");
-		d2 = dictRepo.save(d2);
+		dictRepo.save(d2);
 		DictionaryBot d3 = new DictionaryBot();
 		d3.setKeyword("kwd3");
 		d3.setResponse("rsp3");
-		d3 = dictRepo.save(d3);
-		DictionaryBot d4 = new DictionaryBot();
-		d4.setKeyword("kwd4");
-		d4.setResponse("rsp4");
-		d4 = dictRepo.save(d4);
-		DictionaryBot d5 = new DictionaryBot();
-		d5.setKeyword("kwd5");
-		d5.setResponse("rsp5");
-		d5 = dictRepo.save(d5);
-		DictionaryBot d7 = new DictionaryBot();
-		d7.setKeyword("kwd7");
-		d7.setResponse("rsp7");
-		d7 = dictRepo.save(d7);
+		dictRepo.save(d3);
 	}
-	tester += ",next ";
 	i = dictRepo.findAll();
-	tester += i.getClass().getName();
-	tester += ", next ";
-	tester += dictRepo.findAll().getClass().getName();
 	iter = i.iterator();
 	if(iter.hasNext()){
 		DictionaryBot d6 = new DictionaryBot();
@@ -83,12 +63,5 @@ public class KitchenSinkApplication {
 		d6.setResponse("rsp6");
 		d6 = dictRepo.save(d6);
 	}
-	//Iterable<Dictionary> ic = dictRepo.findAll();
-	//Iterator<Dictionary> iterc = ic.iterator();
-	/*
-	if(iterc.hasNext()){
-		tester = iterb.next().getResponse();
-	}
-	*/
     }
 }

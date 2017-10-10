@@ -6,21 +6,15 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.net.URISyntaxException;
 import java.net.URI;
-import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Iterator;
 
 @Slf4j
 public class SQLDatabaseEngine extends DatabaseEngine {
 
-	/*
-	@Autowired
-	private DictionaryRepository dictRepo;
-	*/
-
 	@Override
 	String search(String text) throws Exception {
 		//Write your code here
-		String result = "mmm";
+		String result = null;
 		/*
 		Connection conn = getConnection();
 		PreparedStatement stmt = conn.prepareStatement("select response from responseList where keyword = ?");
@@ -34,13 +28,12 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		conn.close();
 		*/
 
-		/*
-		for(Dictionary dict : dictRepo.findByKeyword(text)){
-			result = dict.getResponse();
+		Iterable<DictionaryBot> i = KitchenSinkApplication.dictRepo.findByKeyword(text);
+		
+		for(Iterator<DictionaryBot> iter = i.iterator(); iter.hasNext();){
+			result = iter.next().getResponse();
 		}
-		*/
 
-		result = KitchenSinkApplication.tester;
 		return result;
 		/*
 		if(result != null) {
