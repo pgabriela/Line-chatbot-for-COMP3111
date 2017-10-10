@@ -4,11 +4,12 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Component;
 import java.util.List;
+import com.example.bot.spring.Dictionary;
 
 @Component
 public interface DictionaryRepository extends CrudRepository<Dictionary, Long> {
 	//List<Dictionary> findByKeyword(String keyword);	
 
-	@Override
-	List<Dictionary> findAll();
+	//@Override
+	//List<Dictionary> findAll();
 }
