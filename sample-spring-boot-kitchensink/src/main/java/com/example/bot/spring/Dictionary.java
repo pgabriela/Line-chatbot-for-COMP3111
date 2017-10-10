@@ -10,7 +10,7 @@ public class Dictionary {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 	private String keyword;
 	private String response;
 
@@ -25,7 +25,7 @@ public class Dictionary {
 	public void setResponse(String response){
 		this.response= response;
 	}
-	public void setId(int id){
+	public void setId(long id){
 		this.id = id;
 	}
 	public String getKeyword(){
@@ -34,7 +34,7 @@ public class Dictionary {
 	public String getResponse(){
 		return response;
 	}
-	public int getId(){
+	public long getId(){
 		return id;
 	}
 

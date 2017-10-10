@@ -40,8 +40,10 @@ public class KitchenSinkApplication {
 
 	dictRepo = (DictionaryRepository) ctx.getBean("dictionaryRepository");
 	Iterable<Dictionary> i = dictRepo.findAll();
-	tester = dictRepo.findAll().getClass().getName();
+	tester += dictRepo.findAll().getClass().getName();
 	Iterator<Dictionary> iter = i.iterator();
+	tester += ", next ";
+	tester += i.iterator().getClass().getName();
 
 	if(!iter.hasNext()){
 		Dictionary d1 = new Dictionary("kwd1", "rsp1");
@@ -56,6 +58,8 @@ public class KitchenSinkApplication {
 		dictRepo.save(d5);
 	}
 	Iterable<Dictionary> ib = dictRepo.findAll();
+	tester += ", next ";
+	tester += dictRepo.findAll().getClass().getName();
 	Iterator<Dictionary> iterb = ib.iterator();
 	if(iterb.hasNext()){
 		Dictionary d6 = new Dictionary("kwd6", "rsp6");
