@@ -39,9 +39,6 @@ public class KitchenSinkApplication {
 	ApplicationContext ctx = SpringApplication.run(KitchenSinkApplication.class, args);
 
 	dictRepo = (DictionaryRepository) ctx.getBean("dictionaryRepository");
-	tester += dictRepo.getClass().getName();
-	tester += " ";
-	tester += dictRepo.findAll().getClass().getName();
 	Iterable<Dictionary> i = dictRepo.findAll();
 	Iterator<Dictionary> iter = i.iterator();
 
@@ -58,7 +55,7 @@ public class KitchenSinkApplication {
 		dictRepo.save(d5);
 	}
 	Iterable<Dictionary> ib = dictRepo.findAll();
-	//tester = Long.toString(dictRepo.count());
+	tester = Long.toString(dictRepo.count());
 	Iterator<Dictionary> iterb = ib.iterator();
 	if(iterb.hasNext()){
 		Dictionary d6 = new Dictionary("kwd6", "rsp6");
