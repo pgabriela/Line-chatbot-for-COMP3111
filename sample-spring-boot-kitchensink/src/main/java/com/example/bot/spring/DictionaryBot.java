@@ -14,10 +14,7 @@ public class DictionaryBot {
 	private String keyword;
 	private String response;
 
-	public DictionaryBot(String keyword, String response){
-		this.keyword = keyword;
-		this.response = response;
-	}
+	public DictionaryBot(){}
 
 	public void setKeyword(String keyword){
 		this.keyword = keyword;
