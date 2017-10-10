@@ -4,10 +4,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Component;
 import java.util.List;
-import com.example.bot.spring.Dictionary;
 
 @Component
-public interface DictionaryRepository extends CrudRepository<Dictionary, Long> {
+public interface DictionaryBotRepository extends CrudRepository<DictionaryBot, Long> {
 	//List<Dictionary> findByKeyword(String keyword);	
 
 	//@Override

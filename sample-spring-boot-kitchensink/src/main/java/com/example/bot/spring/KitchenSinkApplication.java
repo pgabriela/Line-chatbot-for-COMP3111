@@ -23,7 +23,7 @@ import java.util.Iterator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import com.example.bot.spring.Dictionary;
+import com.example.bot.spring.DictionaryBot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
@@ -31,31 +31,45 @@ import org.springframework.context.ApplicationContext;
 public class KitchenSinkApplication {
     static Path downloadedContentDir;
     static String tester = "";
-    static DictionaryRepository dictRepo;
+    static DictionaryBotRepository dictRepo;
 
     public static void main(String[] args) throws IOException {
         downloadedContentDir = Files.createTempDirectory("line-bot");
 	//dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
 	ApplicationContext ctx = SpringApplication.run(KitchenSinkApplication.class, args);
 
-	dictRepo = (DictionaryRepository) ctx.getBean("dictionaryRepository");
-	Iterable<Dictionary> i = dictRepo.findAll();
+	dictRepo = (DictionaryBotRepository) ctx.getBean("dictionaryBotRepository");
+	Iterable<DictionaryBot> i = dictRepo.findAll();
 	tester += dictRepo.findAll().getClass().getName();
-	Iterator<Dictionary> iter = i.iterator();
+	Iterator<DictionaryBot> iter = i.iterator();
 	tester += ",next ";
 	tester += iter.hasNext();
 
 	if(!iter.hasNext()){
-		Dictionary d1 = new Dictionary("kwd1", "rsp1");
+		DictionaryBot d1 = new DictionaryBot();
+		d1.setKeyword("kwd1");
+		d1.setResponse("rsp1");
 		d1 = dictRepo.save(d1);
-		Dictionary d2 = new Dictionary("kwd2", "rsp2");
+		DictionaryBot d2 = new DictionaryBot();
+		d2.setKeyword("kwd2");
+		d2.setResponse("rsp2");
 		d2 = dictRepo.save(d2);
-		Dictionary d3 = new Dictionary("kwd3", "rsp3");
+		DictionaryBot d3 = new DictionaryBot();
+		d3.setKeyword("kwd3");
+		d3.setResponse("rsp3");
 		d3 = dictRepo.save(d3);
-		Dictionary d4 = new Dictionary("kwd4", "rsp4");
+		DictionaryBot d4 = new DictionaryBot();
+		d4.setKeyword("kwd4");
+		d4.setResponse("rsp4");
 		d4 = dictRepo.save(d4);
-		Dictionary d5 = new Dictionary("kwd5", "rsp5");
+		DictionaryBot d5 = new DictionaryBot();
+		d5.setKeyword("kwd5");
+		d5.setResponse("rsp5");
 		d5 = dictRepo.save(d5);
+		DictionaryBot d7 = new DictionaryBot();
+		d7.setKeyword("kwd7");
+		d7.setResponse("rsp7");
+		d7 = dictRepo.save(d7);
 	}
 	tester += ",next ";
 	i = dictRepo.findAll();
@@ -64,11 +78,13 @@ public class KitchenSinkApplication {
 	tester += dictRepo.findAll().getClass().getName();
 	iter = i.iterator();
 	if(iter.hasNext()){
-		Dictionary d6 = new Dictionary("kwd6", "rsp6");
-		dictRepo.save(d6);
+		DictionaryBot d6 = new DictionaryBot();
+		d6.setKeyword("kwd6");
+		d6.setResponse("rsp6");
+		d6 = dictRepo.save(d6);
 	}
-	Iterable<Dictionary> ic = dictRepo.findAll();
-	Iterator<Dictionary> iterc = ic.iterator();
+	//Iterable<Dictionary> ic = dictRepo.findAll();
+	//Iterator<Dictionary> iterc = ic.iterator();
 	/*
 	if(iterc.hasNext()){
 		tester = iterb.next().getResponse();

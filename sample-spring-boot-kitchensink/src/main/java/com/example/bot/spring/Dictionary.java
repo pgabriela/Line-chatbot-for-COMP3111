@@ -6,18 +6,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Dictionary {
+public class DictionaryBot {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	private String keyword;
-	private String response;
+	long id;
+	String keyword;
+	String response;
 
+	/*
 	public Dictionary(String keyword, String response){
 		this.keyword = keyword;
 		this.response = response;
 	}
+	*/
+	public DictionaryBot(){}
 
 	public void setKeyword(String keyword){
 		this.keyword = keyword;
