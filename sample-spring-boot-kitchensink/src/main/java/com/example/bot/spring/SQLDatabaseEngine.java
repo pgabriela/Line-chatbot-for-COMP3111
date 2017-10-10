@@ -36,6 +36,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 			result = dict.getResponse();
 		}
 
+		return "abc";
 		if(result != null) {
 			return result;
 		}
