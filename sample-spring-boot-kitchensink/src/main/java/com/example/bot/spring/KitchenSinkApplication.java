@@ -30,13 +30,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class KitchenSinkApplication {
     static Path downloadedContentDir;
     static String tester = null;
-    @Autowired
-    static DictionaryRepository dictRepo;
+    //static DictionaryRepository dictRepo;
 
     public static void main(String[] args) throws IOException {
         downloadedContentDir = Files.createTempDirectory("line-bot");
-	//DictionaryRepository dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
-	SpringApplication.run(KitchenSinkApplication.class, args);
+	DictionaryRepository dictRepo = (DictionaryRepository) SpringApplication.run(KitchenSinkApplication.class, args).getBean("dictionaryRepository");
+	//SpringApplication.run(KitchenSinkApplication.class, args);
 
 	tester = dictRepo.getClass().getName();
 
